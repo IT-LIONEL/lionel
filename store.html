@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="0c_p8vWvFWnqSpMYWVTBfbzYsuaWgaViwTEP31GtLpk" />
+    <title>Lionel Business Tutorials</title>
+    <script>
+        // ... (Your existing JavaScript code for slideshow and search) ...
+    </script>
+    <style>
+        /* ... (Your existing CSS code) ... */
+
+        footer {
+            /* ... (Your existing footer styles) ... */
+            flex-direction: column; /* Ensure footer elements stack vertically */
+            align-items: center; /* Center footer elements horizontally */
+            text-align: center; /* Center text within footer */
+        }
+
+        .contact-info, .contact-form {
+            margin-bottom: 2em; /* Add spacing between footer sections */
+            width: 100%; /* Make contact sections full width on smaller screens */
+        }
+
+        .social-media {
+            display: none; /* Hide social media icons */
+        }
+
+        .contact-info {
+            display: none; /* Hide contact info */
+        }
+    </style>
+</head>
+
+<body>
+    <footer id="contact">
+        <div class="contact-form">
+            <h3>Send us a message:</h3>
+            <form action="https://formspree.io/f/manngykz" method="POST">
+                <label for="email">Your email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <p>&copy; 2023 Lionel Business Tutorials</p> </footer>
+
+    </body>
+
+</html>
