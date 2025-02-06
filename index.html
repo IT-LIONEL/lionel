@@ -1,369 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="0c_p8vWvFWnqSpMYWVTBfbzYsuaWgaViwTEP31GtLpk" />
-    <title>Lionel Business Tutorials</title>
-    <script>
-        // Script to prevent disabling actions (for better user experience)
-        document.addEventListener("keydown", function(event) {
-            // Preventing DevTools and certain keyboard shortcuts
-            if (event.ctrlKey && (event.shiftKey && event.key === 'I' || event.key === 'U' || event.key === 'S')) {
-                event.preventDefault(); // Prevent default behavior (disabling actions)
-                alert("This action is restricted for a better user experience. Please contact us for further assistance.");
-            }
-
-            // Disabling right-click
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                alert("Right-click is disabled on this page.");
-            });
-
-            // Disable F12 (DevTools), Ctrl+U, Ctrl+S
-            if (event.keyCode == 123 || (event.ctrlKey && event.keyCode == 85)) {
-                event.preventDefault();
-                alert("You are not allowed to view or save the source code.");
-            }
-
-            if (event.ctrlKey && event.key === 's') {
-                event.preventDefault();
-                alert("You are not allowed to save this page without permission.");
-            }
-        });
-    </script>
-    <style>
-        /* Reset some default styles */
-        body, h1, h2, p {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
-            line-height: 1.6;
-        }
-
-        /* Header styling */
-        header {
-            background-color: #1c1c1c;
-            padding: 1em;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1em;
-        }
-
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links li a:hover {
-            color: #f39c12;
-        }
-
-        .search-bar {
-            display: flex;
-            gap: 0.5em;
-        }
-
-        .search-bar input {
-            padding: 0.5em;
-            border: none;
-            border-radius: 4px;
-        }
-
-        .search-bar button {
-            padding: 0.5em;
-            background-color: #f39c12;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .search-bar button:hover {
-            background-color: #e67e22;
-        }
-
-        /* Tutorials Grid */
-        .tutorials-grid {
-            display: flex;
-            overflow: hidden;
-            gap: 1em;
-            padding: 2em;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .tutorial-card {
-            background-color: #34495e;
-            border-radius: 4px;
-            padding: 1em;
-            min-width: calc(33.333% - 2em);
-            box-sizing: border-box;
-            text-align: center;
-            transition: border 0.3s ease;
-        }
-
-        .tutorial-card iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 4px;
-        }
-
-        .tutorial-card h3 {
-            margin-top: 1em;
-            font-size: 1.2em;
-        }
-
-        .tutorial-card p {
-            margin-top: 0.5em;
-        }
-
-        /* Highlight class for matched videos */
-        .highlight {
-            border: 2px solid #f39c12;
-            transition: border 0.3s ease;
-        }
-
-        /* Nav buttons */
-        .nav-button {
-            background-color: #f39c12;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 0.5em 1em;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .nav-button.left {
-            left: 0;
-        }
-
-        .nav-button.right {
-            right: 0;
-        }
-
-        .nav-button:hover {
-            background-color: #e67e22;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1c1c1c;
-            padding: 2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        footer p {
-            margin-bottom: 1em;
-        }
-
-        footer a {
-            color: #f39c12;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            margin-top: 2em;
-            background-color: #34495e;
-            padding: 2em;
-            border-radius: 4px;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 1em;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8em;
-            margin-top: 0.5em;
-            border-radius: 4px;
-            border: none;
-        }
-
-        .contact-form button {
-            background-color: #f39c12;
-            padding: 1em;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 1em;
-            width: 100%;
-        }
-
-        .contact-form button:hover {
-            background-color: #e67e22;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="google-site-verification" content="0c_p8vWvFWnqSpMYWVTBfbzYsuaWgaViwTEP31GtLpk" />
+  <meta name="description" content="IT Tutorials Zone is currently under maintenance. Stay tuned for updates!">
+  <meta property="og:title" content="IT Tutorials Zone - Under Maintenance">
+  <meta property="og:description" content="We're working hard to bring you the best IT tutorials. Check back soon!">
+  <meta property="og:image" content="path/to/your/og-image.jpg">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon Link -->
+  <link rel="icon" href="https://lh3.googleusercontent.com/a-/ALV-UjXG9wL7zpGRkAipX_076KL9kxY2yEokE4G2_T54m0f7TarEuYVw9ojX0_YfeYyaX9ogSJ2shFVz9nf7QKMcNcAO5JR0qnVzeT7dFRRn8kh3A9fl_C9tfDnNHych9SEA24T83DA8yey7tVtFkNN2MtjyXMuJV6BkVFGbQaOk9SarNGqqwtvWT69cyeaqxqAp8ztqkzAyob4qyu6Q6gRDxjXfm0NFf5v1xwZ3hek783qh8JdME9N3AEfSEJ1GdwGCMmGG8CVuo6JjdCcjxfLGZOw1JCv4hHETpD00Le1KOqdWbuisT8-WCMHf6HLEvSdbgWDqryejLjjpYhirgP52uBhpb5TwV-p3-qFoND_UZzwZ3Sq8XpeNW27cvHpf4Oi7qX8TB0mKWTk2YzsdX2nUzpIDlUr2v00aVlhVgznjN_fB0c_6VKSXIbs3ymVGAiXKm5900oqMxfda2eyziU60qPTdau5_nGzm3OzQ6kbCLmX5tGP-Zho8fX-8T5s35TPf2wU1gBtbhXVu1V7STRM_P99jjSDR75zzlaDcEPKbT6mqh4N4FKQV7_ruzxw1fM3r99s5XwEI2b2ydCwV04QFl-hsG0H2EUeGbIJqkTIGMWoquEHc17CXnmSggruuGet4LluOIZOIxhIGCqnsokWR-xDZaLewvs9xNTFJVI1-Rwfu9lcbQW2NgeZ8Op3PlXO_gbh7_YJos2TJ-Gl1XhKXeWibwFJKZ23xvK_wYh3S8Y1MmcWUvFoDPCZSCnUKTA1wSZ18JT-p3NQIz-zntRtS3CLUBOb3deQWWRTo9nAjRS23l1rDrSH_dIMUmGWVyBFc_RI2F62TuyWjt-IBUMCswvcvViFjjv0lBJ2FgYqe_iaG03o9d_Ura2HLnycwXuRvmDYPZu6sosVOO5gt5-9thf5oX42A7WAYMKTq4IdA0J9dlTfIo46M5UNf3mDG_cm85AZK5wbo0FMcEgag5hbuZPTONmg=s96-c-rg-br100" type="image/x-icon">
+  <link rel="shortcut icon" href="https://lh3.googleusercontent.com/a-/ALV-UjXG9wL7zpGRkAipX_076KL9kxY2yEokE4G2_T54m0f7TarEuYVw9ojX0_YfeYyaX9ogSJ2shFVz9nf7QKMcNcAO5JR0qnVzeT7dFRRn8kh3A9fl_C9tfDnNHych9SEA24T83DA8yey7tVtFkNN2MtjyXMuJV6BkVFGbQaOk9SarNGqqwtvWT69cyeaqxqAp8ztqkzAyob4qyu6Q6gRDxjXfm0NFf5v1xwZ3hek783qh8JdME9N3AEfSEJ1GdwGCMmGG8CVuo6JjdCcjxfLGZOw1JCv4hHETpD00Le1KOqdWbuisT8-WCMHf6HLEvSdbgWDqryejLjjpYhirgP52uBhpb5TwV-p3-qFoND_UZzwZ3Sq8XpeNW27cvHpf4Oi7qX8TB0mKWTk2YzsdX2nUzpIDlUr2v00aVlhVgznjN_fB0c_6VKSXIbs3ymVGAiXKm5900oqMxfda2eyziU60qPTdau5_nGzm3OzQ6kbCLmX5tGP-Zho8fX-8T5s35TPf2wU1gBtbhXVu1V7STRM_P99jjSDR75zzlaDcEPKbT6mqh4N4FKQV7_ruzxw1fM3r99s5XwEI2b2ydCwV04QFl-hsG0H2EUeGbIJqkTIGMWoquEHc17CXnmSggruuGet4LluOIZOIxhIGCqnsokWR-xDZaLewvs9xNTFJVI1-Rwfu9lcbQW2NgeZ8Op3PlXO_gbh7_YJos2TJ-Gl1XhKXeWibwFJKZ23xvK_wYh3S8Y1MmcWUvFoDPCZSCnUKTA1wSZ18JT-p3NQIz-zntRtS3CLUBOb3deQWWRTo9nAjRS23l1rDrSH_dIMUmGWVyBFc_RI2F62TuyWjt-IBUMCswvcvViFjjv0lBJ2FgYqe_iaG03o9d_Ura2HLnycwXuRvmDYPZu6sosVOO5gt5-9thf5oX42A7WAYMKTq4IdA0J9dlTfIo46M5UNf3mDG_cm85AZK5wbo0FMcEgag5hbuZPTONmg=s96-c-rg-br100">
+  <link rel="apple-touch-icon" href="path/to/your/apple-touch-icon.png">
+  <title>IT Tutorials Zone - Under Maintenance</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: black;
+      color: white;
+      padding: 0 10px;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+    h1, h2 {
+      margin: 0 0 10px;
+    }
+    p {
+      color: #eee;
+      margin-bottom: 20px;
+    }
+    .emoji {
+      font-size: 2em;
+    }
+    ul.social-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    ul.social-links li {
+      display: inline;
+    }
+    ul.social-links img {
+      width: 30px;
+      height: 30px;
+    }
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    form {
+      margin-top: 20px;
+      width: 100%;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ddd;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid #333;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">Lionel Business Tutorials</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#trending">Trending</a></li>
-                <li><a href="#recent">Recent</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search tutorials..." />
-                <button onclick="searchVideos()">Search</button>
-            </div>
-        </nav>
-    </header>
+  <div class="container">
+    <h1>IT Tutorials Zone</h1>
+    <h2>We're Under Maintenance</h2>
+    <p>We're currently working to improve our site. Thank you for your patience.</p>
+    <p class="emoji">🛠️</p>
+    <p>We'll be back soon!</p>
 
-    <!-- Trending Tutorials Section -->
-    <section id="trending">
-        <h2>Trending Tutorials</h2>
-        <div class="tutorials-grid" id="trendingGrid">
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>hanze by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>video 2 by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>video 3 by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-        </div>
-        <button class="nav-button left" onclick="moveSlides('left', 'trendingGrid')">←</button>
-        <button class="nav-button right" onclick="moveSlides('right', 'trendingGrid')">→</button>
-    </section>
+    <ul class="social-links">
+      <li>
+        <a href="https://facebook.com/it.lionel" target="_blank" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/it.lionel" target="_blank" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        </a>
+      </li>
+    </ul>
 
-    <!-- Recent Tutorials Section -->
-    <section id="recent">
-        <h2>Recent Tutorials</h2>
-        <div class="tutorials-grid" id="recentGrid">
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>hAnze by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>video 2 by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-            <div class="tutorial-card">
-                <iframe src="https://dropload.io/e/2ki9z4vkiu8l" frameborder="0" allowfullscreen></iframe>
-                <h3>video 3 by Kivumbi</h3>
-                <button type="submit"><li><a href="https://dropload.io/e/2ki9z4vkiu8l">DOWNLOAD</a></li></button>
-            </div>
-        </div>
-        <button class="nav-button left" onclick="moveSlides('left', 'recentGrid')">←</button>
-        <button class="nav-button right" onclick="moveSlides('right', 'recentGrid')">→</button>
-    </section>
+    <div class="contact-info">
+      <p>Contact us at:</p>
+      <p>Phone: 0791566874</p>
+      <p>Email: hhirwaa@gmail.com</p>
+    </div>
 
-    <footer id="contact">
-        <div class="social-media">
-            <p>Follow us on:</p>
-            <ul>
-                <li>
-                    <a href="https://facebook.com/it.lionel">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 30px; height: 30px;" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://instagram.com/it.lionel">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; height: 30px;" />
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <form action="https://formspree.io/f/xanqbeak" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
 
-        <div class="contact-info">
-            <p>Contact us at:</p>
-            <p>Phone: 0791566874</p>
-            <p>Email: hhirwaa@gmail.com</p>
-        </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
 
-        <!-- Contact Form -->
-        <div class="contact-form">
-            <h3>Send us a message:</h3>
-            <form action="https://formspree.io/f/manngykz" method="POST">
-                <label>
-                    Your email:
-                    <input type="email" name="email" required>
-                </label>
-                <label>
-                    Your message:
-                    <textarea name="message" required></textarea>
-                </label>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </footer>
+      <label for="message">Leave a message:</label>
+      <textarea id="message" name="message" rows="4"></textarea>
 
-    <script>
-        // Functionality for slideshows and search
-        let currentIndexTrending = 0;
-        let currentIndexRecent = 0;
-        const totalItems = 6; // Total tutorial cards
-
-        function moveSlides(direction, gridId) {
-            const grid = document.getElementById(gridId);
-            const visibleItems = 3; // Number of visible cards at a time
-
-            if (direction === 'left') {
-                if (gridId === 'trendingGrid') currentIndexTrending = (currentIndexTrending - 1 + totalItems) % totalItems;
-                else currentIndexRecent = (currentIndexRecent - 1 + totalItems) % totalItems;
-            } else {
-                if (gridId === 'trendingGrid') currentIndexTrending = (currentIndexTrending + 1) % totalItems;
-                else currentIndexRecent = (currentIndexRecent + 1) % totalItems;
-            }
-
-            grid.style.transform = `translateX(-${(gridId === 'trendingGrid' ? currentIndexTrending : currentIndexRecent) * (100 / visibleItems)}%)`;
-        }
-    </script>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 </body>
-
 </html>
